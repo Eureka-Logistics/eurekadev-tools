@@ -1,14 +1,14 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
-import { MainLayout } from '@/components/layout/MainLayout';
-import { HomePage } from '@/pages/HomePage';
-import { CategoryPage } from '@/pages/CategoryPage';
-import { FavoritesPage } from '@/pages/FavoritesPage';
-import { ToolPage } from '@/pages/ToolPage';
-import { NotFoundPage } from '@/pages/NotFoundPage';
+import { createHashRouter, Navigate } from "react-router-dom";
+import { MainLayout } from "@/components/layout/MainLayout";
+import { HomePage } from "@/pages/HomePage";
+import { CategoryPage } from "@/pages/CategoryPage";
+import { FavoritesPage } from "@/pages/FavoritesPage";
+import { ToolPage } from "@/pages/ToolPage";
+import { NotFoundPage } from "@/pages/NotFoundPage";
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
-    path: '/',
+    path: "/",
     element: <MainLayout />,
     children: [
       {
@@ -16,26 +16,25 @@ export const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: 'category/:categoryId',
+        path: "category/:categoryId",
         element: <CategoryPage />,
       },
       {
-        path: 'favorites',
+        path: "favorites",
         element: <FavoritesPage />,
       },
       {
-        path: 'tools/:toolId',
+        path: "tools/:toolId",
         element: <ToolPage />,
       },
       {
-        path: 'editor',
+        path: "editor",
         element: <Navigate to="/tools/substrata" replace />,
       },
       {
-        path: '*',
+        path: "*",
         element: <NotFoundPage />,
       },
     ],
   },
 ]);
-
